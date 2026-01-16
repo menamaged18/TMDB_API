@@ -1,0 +1,18 @@
+<a [routerLink]="this.url()">
+  <h2>{{ this.title() }}</h2>
+</a>
+
+<div class="slider-wrapper">
+  <button class="nav-btn prev" (click)="scrollLeft()">&#10094;</button>
+  
+  <div class="content-container" #sliderContainer>
+    <div class="movie-grid">
+      <app-movie-card
+        *ngFor="let m of moviesData()"
+        [movie]="m">
+      </app-movie-card>
+    </div>
+  </div>
+
+  <button class="nav-btn next" (click)="scrollRight()">&#10095;</button>
+</div>

@@ -1,0 +1,156 @@
+:host {
+  display: block;
+  background-color: #141414; /* Dark background inspired by Netflix-style */
+  /* min-height: 100vh; */
+  padding: 2rem;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  overflow: hidden; 
+}
+
+/* title style */
+a{
+  text-decoration: none; 
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+h2 {
+  color: #e5e5e5; 
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+/* Red accent indicator */
+h2::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 1.2rem;
+  background-color: #e50914; /* Brand red */
+  border-radius: 2px;
+}
+
+/* Hover effects */
+a:hover h2 {
+  color: #ffffff;
+}
+
+a[routerLink]:hover h2::after {
+  opacity: 1;
+  transform: translateX(10px);
+}
+
+/* Interactive lift effect */
+a[routerLink]:active {
+  transform: scale(0.98);
+}
+
+/* Carousel view for the movies */
+.slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.content-container {
+  overflow-x: hidden; 
+  scroll-behavior: smooth; 
+  width: 100%;
+}
+
+.movie-grid {
+  display: flex; 
+  gap: 1rem;
+  padding: 10px 0;
+}
+
+app-movie-card {
+  min-width: 200px;
+}
+
+/* Navigation Buttons */
+.nav-btn {
+  position: absolute;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  height: 10%;
+  width: 50px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.nav-btn:hover { background: rgba(0, 0, 0, 0.8); }
+.prev { left: 0; }
+.next { right: 0; }
+
+
+/* Loading State */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  color: #e50914;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* --- loading style ---*/
+.content-container {
+  position: relative;
+  min-height: 300px;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  border-radius: 8px;
+}
+
+.loader {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  padding: 20px;
+  text-align: center;
+}
+
+/* spinner animation */
+.loader::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.content-container.loading .movie-grid {
+  opacity: 0.5;
+  pointer-events: none;
+}

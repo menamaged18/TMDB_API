@@ -1,0 +1,88 @@
+:host {
+  display: block;
+  background-color: #141414; /* Dark background inspired by Netflix-style */
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+h2 {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  border-left: 4px solid #e50914; /* Red accent line */
+  padding-left: 15px;
+}
+
+/* The Responsive Grid */
+.movie-grid {
+  display: grid;
+  /* Automatically fits as many cards as possible, minimum 200px wide */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+  padding-bottom: 3rem;
+}
+
+/* Loading State */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  color: #e50914;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* --- loading style ---*/
+.content-container {
+  position: relative;
+  min-height: 300px;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  border-radius: 8px;
+}
+
+.loader {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  padding: 20px;
+  text-align: center;
+}
+
+/* spinner animation */
+.loader::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.content-container.loading .movie-grid {
+  opacity: 0.5;
+  pointer-events: none;
+}

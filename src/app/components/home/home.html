@@ -1,0 +1,11 @@
+
+<app-movies-list
+  [type]="MoviesFetchTypes.Popular"
+  [fetchFn]="moviesDataService.getPopularMovies.bind(moviesDataService)">
+</app-movies-list>
+
+
+<app-movies-list
+  [type]="MoviesFetchTypes.TopRated"
+  [fetchFn]="moviesDataService.getTopRatedMovies.bind(moviesDataService)">
+</app-movies-list>

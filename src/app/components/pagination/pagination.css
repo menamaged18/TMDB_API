@@ -1,0 +1,44 @@
+/* --- pagination style --- */
+
+/* Container styling */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  background-color: #141414;
+}
+
+mat-paginator {
+  background-color: #141414 !important; 
+  color: #ffffff !important;
+  margin-top: 2rem;
+  border-top: 1px solid #333;
+  border-radius: 8px;
+}
+
+/* Styling the icons (arrows) */
+::ng-deep .mat-mdc-paginator-icon {
+  fill: #e50914 !important; /* Red arrows */
+}
+
+/* Styling the "Items per page" and "1-20 of 100" text */
+::ng-deep .mat-mdc-paginator-range-label,
+::ng-deep .mat-mdc-paginator-page-size-label {
+  color: #b3b3b3 !important;
+  font-weight: 500;
+}
+
+/* Styling the dropdown select */
+::ng-deep .mat-mdc-select-value,
+::ng-deep .mat-mdc-select-arrow {
+  color: #ffffff !important;
+}
+
+/* Styling the hover effect on buttons */
+::ng-deep .mat-mdc-icon-button:disabled {
+  opacity: 0.3;
+}
+
+::ng-deep .mat-mdc-icon-button:hover {
+  background-color: rgba(229, 9, 20, 0.1) !important;
+}

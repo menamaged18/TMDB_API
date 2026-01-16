@@ -1,0 +1,17 @@
+<h2>{{ title }}</h2>
+
+<div class="content-container" [class.loading]="isLoading && moviesData().length > 0">
+  <div class="movie-grid">
+    <app-movie-card
+      *ngFor="let m of moviesData()" 
+      [movie]="m">
+    </app-movie-card>
+  </div>
+</div>
+
+<app-pagination
+  [length]="length"
+  [pageIndex]="pageIndex"
+  (pageChange)="onPageChange($event)">
+</app-pagination>
+
