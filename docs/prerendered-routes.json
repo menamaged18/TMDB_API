@@ -1,7 +1,0 @@
-{
-  "routes": {
-    "/TMDB_API": {},
-    "/TMDB_API/movies/popular": {},
-    "/TMDB_API/movies/top-rated": {}
-  }
-}
