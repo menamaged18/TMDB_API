@@ -1,0 +1,57 @@
+@if (isLoading()) {
+  <div class="loader-container">
+    <div class="spinner"></div>
+    <p>Loading Movie...</p>
+  </div>
+} @else if (movie()) {
+  <div 
+    class="hero-section" 
+    [style.backgroundImage]="'url(https://image.tmdb.org/t/p/original' + movie()!.backdrop_path + ')'"
+  >
+    <div class="glass-overlay">
+      <div class="container">
+        
+        <div class="poster-wrapper">
+          <img 
+            class="main-poster"
+            [src]="'https://image.tmdb.org/t/p/w500' + movie()!.poster_path" 
+            [alt]="movie()!.title" 
+          />
+        </div>
+
+        <div class="details-wrapper">
+          <h1 class="movie-title">{{ movie()!.title }} <span class="year">({{ movie()!.release_date.split('-')[0] }})</span></h1>
+          
+          <div class="badge-row">
+            <span class="badge score">⭐ {{ movie()!.vote_average.toFixed(1) }}</span>
+            <span class="badge">{{ movie()!.runtime }} min</span>
+            @for (genre of movie()!.genres; track genre.id) {
+              <span class="badge">{{ genre.name }}</span>
+            }
+          </div>
+
+          <p class="tagline"><i>{{ movie()!.tagline }}</i></p>
+
+          <div class="synopsis">
+            <h3>Overview</h3>
+            <p>{{ movie()!.overview }}</p>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-item">
+              <label>Release Date</label>
+              <span>{{ movie()!.release_date }}</span>
+            </div>
+            <div class="stat-item">
+              <label>Status</label>
+              <span>Released</span>
+            </div>
+          </div>
+          <!-- TODO Later -->
+          <!-- <button class="back-btn" (click)="goBack()">← Back to Movies</button> -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+}

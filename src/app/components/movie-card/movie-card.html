@@ -1,13 +1,15 @@
 <div class="card">
-  <img [src]="imgBaseUrl + movie.poster_path" [alt]="movie.title" class="poster">
-  
-  <div class="card-body">
-    <div class="header">
-      <span class="rating">⭐ {{ movie.vote_average.toFixed(1) }}</span>
-      <span class="date">{{ movie.release_date | date:'yyyy' }}</span>
-    </div>
+  <a [routerLink]="`movies/movieDetails/${movie.id}`">
+    <img [src]="imgBaseUrl + movie.poster_path" [alt]="movie.title" class="poster">
     
-    <h3 class="title">{{ movie.title }}</h3>
-    <p class="overview">{{ movie.overview }}</p>
-  </div>
+    <div class="card-body">
+      <div class="header">
+        <span class="rating">⭐ {{ movie.vote_average.toFixed(1) }}</span>
+        <span class="date">{{ movie.release_date | date:'yyyy' }}</span>
+      </div>
+      
+      <h3 class="title">{{ movie.title }}</h3>
+      <p class="overview">{{ movie.overview }}</p>
+    </div>
+  </a>
 </div>

@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { Observable } from 'rxjs';
 import { MoviesResponse } from '../interfaces/movies-response';
+import { MovieResult, MovieResult2 } from '../interfaces/movie-response';
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +20,11 @@ export class Moviedata {
   getTopRatedMovies(pageNum: number): Observable<MoviesResponse> {
     return this.http.get<MoviesResponse>(
       `${this.baseUrl}/movie/top_rated?api_key=${environment.apiKey}&page=${pageNum}`
+    );
+  }
+  getMovie(id: number): Observable<MovieResult2> {
+    return this.http.get<MovieResult2>(
+      `${this.baseUrl}/movie/${id}?api_key=${environment.apiKey}`
     );
   }
 }

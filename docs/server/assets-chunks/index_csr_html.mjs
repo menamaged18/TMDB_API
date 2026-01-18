@@ -1,4 +1,4 @@
-<!doctype html>
+export default `<!doctype html>
 <html lang="en" data-beasties-container="">
 <head>
   <meta charset="utf-8">
@@ -15,3 +15,4 @@
   <app-root></app-root>
 <script src="main-37QIKO3F.js" type="module"></script></body>
 </html>
+`;

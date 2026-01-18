@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Movie } from '../../interfaces/movie';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-movie-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './movie-card.html',
   styleUrl: './movie-card.css'
 })

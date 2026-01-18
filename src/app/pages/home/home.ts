@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Moviedata } from '../../services/moviedata';
 import { CommonModule } from '@angular/common';
-import { MoviesList } from '../movies-list/movies-list';
+import { MoviesList } from '../../components/movies-list/movies-list';
 import { MoviesFetchTypes } from '../../interfaces/MoviesFetchTypes';
   
 

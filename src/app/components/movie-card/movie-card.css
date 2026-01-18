@@ -37,3 +37,17 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* Make the link behave like a block container */
+.card a {
+  display: block;
+  text-decoration: none;
+  color: inherit; /* Forces text to stay white/inherit from .card to not destroy the style */
+  height: 100%;
+  width: 100%;
+}
+
+/* Ensure images inside the link don't have strange gaps */
+.card a img {
+  display: block;
+}
